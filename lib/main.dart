@@ -1,27 +1,47 @@
 import 'package:flutter/material.dart';
+import 'package:cookle/dio_server.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    // is not restarted.
     return MaterialApp(
+      home: MyHomePage(),
+    );
+    // is not restarted.
+    /*return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MainPage("Cookle"));
+      home: MainPage("Cookle")
+    );*/
   }
 }
 
-// stful (상태가 있는 위젯)
-class MainPage extends StatefulWidget {
+class MyHomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: <Widget>[
+          FlatButton(
+            color: Colors.orangeAccent,
+            onPressed: () {
+              server.getReq();
+            },
+            child: Text("GET"))
+        ],
+      ),
+    );
+  }
+}
 
+class MainPage extends StatefulWidget {
   final String title;
   MainPage(this.title);
 
