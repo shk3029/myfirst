@@ -30,11 +30,23 @@ class MyHomePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
           FlatButton(
-            color: Colors.orangeAccent,
-            onPressed: () {
-              server.getReq();
-            },
-            child: Text("GET"))
+              color: Colors.orangeAccent,
+              onPressed: () {
+                server.getReq();
+              },
+              child: Text("자동완성")),
+          FlatButton(
+              color: Colors.blue,
+              onPressed: () {
+                server.getSearchReq();
+              },
+              child: Text("검색")),
+          FlatButton(
+              color: Colors.black,
+              onPressed: () {
+                server.getSearchReq();
+              },
+              child: Text("구글로그인"))
         ],
       ),
     );
@@ -42,6 +54,7 @@ class MyHomePage extends StatelessWidget {
 }
 
 class MainPage extends StatefulWidget {
+
   final String title;
   MainPage(this.title);
 
@@ -60,7 +73,7 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
-            onPressed: _chgmessage,
+          onPressed: _chgmessage,
         ),
         appBar: AppBar(
           title: Text(widget.title),
@@ -72,7 +85,7 @@ class _MainPageState extends State<MainPage> {
                 Text(_message, style: TextStyle(fontSize: 20)),
                 Text('$_counter', style: TextStyle(fontSize: 20)),
               ],
-      ))
+            ))
     );
   }
 
